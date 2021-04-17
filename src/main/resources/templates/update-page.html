@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="header-block :: header"></header>
+
+<div class="container">
+    <div class="divider"></div>
+    <div class="section center">
+        <h5>Update new Article</h5>
+    </div>
+    <div class="divider"></div>
+
+    <form class="column" action="/update" method="post">
+        <div th:each="element:${myPost}" class="column">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">title</i>
+                <input th:value="${element.getTitle()}" id="title" type="text" class="validate" name="title" autocomplete="off" maxlength="50" required>
+                <label class="active" for="title">Article title </label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">short_text</i>
+                <textarea th:text="${element.getText()}" id="text" class="materialize-textarea" name="text" autocomplete="off" maxlength="140" required></textarea>
+                <label class="active" for="text">Text</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">person</i>
+                <input th:value="${element.getAuthorName()}" id="author_name" type="text" class="validate" name="authorName" autocomplete="off"
+                       maxlength="50" required>
+                <label class="active" for="author_name">Author's name</label>
+            </div>
+
+            <div class="input-field col s6">
+                <i class="material-icons prefix">people</i>
+                <input th:value="${element.getId()}" id="number" type="number" min="1"  class="validate" name="id" autocomplete="off"
+                       maxlength="5" >
+                <label class="active" for="number">What article are you changing, set the number from 1</label>
+                <i class="material-icons prefix">info</i>
+            </div>
+
+        </div>
+        <input class="waves-effect waves-light btn" type="submit" value="submit" onclick="">
+    </form>
+
+
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('input#title, textarea#text, input#author_name, input#number').characterCounter();
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<form class="col s12" action="/create" method="post">
+    <div class="column">
+        <div class="input-field col s6">
+            <i class="material-icons prefix">title</i>
+            <input id="title" type="text" class="validate" name="title" autocomplete="off" maxlength="50" required>
+            <label class="active" for="title">Article title </label>
+        </div>
+        <div class="input-field col s6">
+            <i class="material-icons prefix">short_text</i>
+            <textarea id="text" class="materialize-textarea" name="text" autocomplete="off" maxlength="140"
+                      required></textarea>
+            <label class="active" for="text">Text</label>
+        </div>
+        <div class="input-field col s6">
+            <i class="material-icons prefix">person</i>
+            <input id="author_name" type="text" class="validate" name="authorName" autocomplete="off"
+                   maxlength="50" required>
+            <label class="active" for="author_name">Author's name</label>
+        </div>
+    </div>
+    <input class="waves-effect waves-light btn" type="submit" value="submit">
+</form>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Read</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="header-block :: header"></header>
+
+<div th:each="res : ${result}" class="container col-md-5 p-3">
+    <div class="card bg-light">
+        <div th:text="${res.getAuthorName()}" class="card-header">
+        </div>
+        <div class="card-body">
+            <h5 th:text="${res.getTitle()}" class="card-title text-dark">a</h5>
+            <p th:text="${res.getText()}" class="card-text">a</p>
+            <a th:href="'/update/'+${res.getId()}" class="btn btn-dark">Update</a>
+        </div>
+        <div th:text="${res.getDate()}" class="card-footer text-muted">a
+        </div>
+    </div>
+</div>
+</body>
+</html>

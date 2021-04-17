@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<header th:insert="header-block :: header"></header>
+
+<div class="container">
+    <div class="divider"></div>
+    <div class="section center">
+        <h5>Delete by id</h5>
+    </div>
+    <div class="divider"></div>
+
+    <form class="column" action="/delete" method="post">
+        <div class="column">
+
+            <label for="allId">All id: </label>
+            <p th:text="${allId}" id="allId"></p>
+
+            <div class="input-field col s6">
+                <i class="material-icons prefix">people</i>
+                <input id="number" type="number" min="1" max="99999" class="validate" name="id" autocomplete="off"
+                       maxlength="5" required>
+                <label class="active" for="number">What article are you changing, set the number from 1 to 99999</label>
+                <i class="material-icons prefix">info</i>
+            </div>
+
+        </div>
+        <input class="waves-effect waves-light btn" type="submit" value="submit">
+    </form>
+
+
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('input#number').characterCounter();
+    });
+</script>
+</body>
+
+</html>
